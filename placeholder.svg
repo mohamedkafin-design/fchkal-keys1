@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b1627"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0d1320"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="900" rx="36" fill="url(#bg)"/>
+  <circle cx="480" cy="120" r="120" fill="url(#accent)" opacity="0.18"/>
+  <circle cx="120" cy="760" r="150" fill="#22d3ee" opacity="0.08"/>
+  <path d="M120 210L300 120L480 210V690L300 780L120 690Z" fill="none" stroke="#9ae6ff" stroke-opacity="0.35" stroke-width="2"/>
+  <path d="M300 160V740" stroke="#9ae6ff" stroke-opacity="0.15" stroke-width="2"/>
+  <text x="300" y="420" text-anchor="middle" font-size="46" font-family="Segoe UI, Arial, sans-serif" font-weight="700" fill="#EAF6FF" letter-spacing="7">FCHKAL</text>
+  <text x="300" y="478" text-anchor="middle" font-size="20" font-family="Segoe UI, Arial, sans-serif" fill="#7dd3fc" letter-spacing="8">STORE</text>
+</svg>
