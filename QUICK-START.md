@@ -5,7 +5,7 @@
 ### Step 1: Open in VS Code
 1. Open VS Code
 2. File → Open Folder
-3. Select: `c:\Users\Administrator\Pictures\lhamdolilah\`
+3. Select the currently opened FCHKAL STORE project folder
 
 ### Step 2: Run the Website
 1. Install extension: **Live Server** by Ritwick Dey
@@ -15,12 +15,8 @@
 
 Or simply **double-click `index.html`** to open in your default browser.
 
-### Step 3: Add Game Images
-1. Save your 10 game cover images
-2. Optimize them (1200x1400px, ~300KB)
-3. Place in: `assets/images/games/`
-4. Use exact filenames (see IMAGES.md)
-5. Refresh browser → Done!
+### Step 3: Check Product Artwork
+Product artwork is already stored in `images/`. If replacing an image, update its `image` path in `js/catalog.js` and refresh the browser.
 
 ---
 
@@ -32,10 +28,11 @@ fchkalkeys/
 ├── css/
 │   └── styles.css         ← All styling (mobile-first responsive)
 ├── js/
-│   └── app.js             ← All functionality (search, language, WhatsApp)
-├── assets/
-│   └── images/
-│       └── games/         ← Add 10 game images here
+│   ├── catalog.js         ← Product data and WhatsApp configuration
+│   ├── app.js             ← Older standalone implementation; not loaded by index.html
+│   └── catalog-validator.js
+├── images/                ← Product artwork and placeholder
+├── public/images/brand/   ← Store logo
 ├── README.md              ← Full documentation
 ├── IMAGES.md              ← Image upload guide
 ├── robots.txt             ← SEO: Search engine rules
@@ -49,10 +46,11 @@ fchkalkeys/
 
 ## ✨ Key Features
 
-✅ **10 Games + 2 Packs** — All pre-configured with correct prices
+✅ **40 Catalogue Entries** — PlayStation, PC, subscriptions, and bundles
 ✅ **WhatsApp Integration** — One-click ordering with pre-filled messages
-✅ **Search System** — Find games instantly
-✅ **Language Support** — English & Arabic (RTL enabled)
+✅ **Search and Filters** — Find products across PS4, PS5, and PC
+✅ **Shopping Cart** — Add products, adjust quantities, and send an order through WhatsApp
+✅ **Language Support** — English, French, Spanish, and Arabic (RTL enabled)
 ✅ **Mobile Responsive** — Perfect on all devices
 ✅ **Dark Gaming Theme** — Black, charcoal, electric blue, and cyan accents
 ✅ **Animations** — Smooth, professional, non-distracting
@@ -62,37 +60,18 @@ fchkalkeys/
 
 ---
 
-## 🎮 Pre-Configured Products
+## 🎮 Product Catalogue
 
-All games are already set up with:
-- Correct titles & descriptions
-- Exact prices in DH
-- Product images (placeholders until you add actual images)
-- WhatsApp messaging (automatic)
-- Bilingual support (English + Arabic)
-
-| # | Game | Price | Status |
-|---|------|-------|--------|
-| 1 | Pack 10 Games Steam | 100 DH | ✅ Ready |
-| 2 | GTA 5 | 30 DH | ✅ Ready |
-| 3 | EA Sports FC 26 | 100 DH | ✅ Ready |
-| 4 | Red Dead Redemption 2 | 30 DH | ✅ Ready |
-| 5 | EA Sports FC 25 | 100 DH | ✅ Ready |
-| 6 | Pack Denuvo Games | 290 DH | ✅ Ready |
-| 7 | ARK Raiders | 50 DH | ✅ Ready |
-| 8 | 007 First Light | 50 DH | ✅ Ready |
-| 9 | Forza Horizon 6 | 50 DH | ✅ Ready |
-| 10 | Resident Evil Requiem | 80 DH | ✅ Ready |
+The 40 product entries, platforms, variants, current prices, availability, and local artwork paths are maintained in `js/catalog.js`. Product cards include details, Add to Cart, and WhatsApp actions. Discount labels are shown only when valid original-price data is supplied.
 
 ---
 
 ## 🔧 Customization
 
 ### Change WhatsApp Number
-Edit `js/app.js` line ~20:
+Edit `WHATSAPP_NUMBER` in `js/catalog.js` and keep the static contact links in `index.html` in sync:
 ```javascript
-// Change from: 212784698172
-// To: Your number (without +212 prefix)
+// Current configured number: 212636059783 (without the + prefix)
 ```
 
 ### Change Colors
@@ -105,19 +84,25 @@ Edit `css/styles.css` `:root` section:
 ```
 
 ### Change Game Information
-Edit `js/app.js` `games` array:
+Edit product entries in `js/catalog.js`:
 - Titles, descriptions, prices
 - Badges, ratings
 - Product images
 
 ### Add/Remove Games
-Add to `games` array in `js/app.js`:
+Add to the `GAME_CATALOG` array in `js/catalog.js`:
 ```javascript
 {
-    id: 11,
+    id: "g-new-game",
+    slug: "new-game",
     title: "New Game",
+    category: "Action Adventure",
+    edition: "Standard",
     price: 50,
-    // ... other properties
+    image: "images/new-game.jpg",
+    status: "available",
+    platforms: ["PC"],
+    variants: [{ id: "g-new-game-pc", platform: "PC", label: "PC", price: 50, status: "available" }]
 }
 ```
 
@@ -125,9 +110,7 @@ Add to `games` array in `js/app.js`:
 
 ## 🌐 Language Switching
 
-Users can switch between:
-- **EN** (English) - LTR layout
-- **العربية** (Arabic) - RTL layout
+Users can switch between English, French, Spanish, and Arabic (RTL) layouts.
 
 Language preference is saved automatically in browser.
 
@@ -184,10 +167,10 @@ Shows results instantly as user types.
 ## 🎨 Design System
 
 ### Colors
-- **Dark Base**: #0a0a0f
-- **Card Background**: #121820
-- **Electric Blue**: #1e90ff
-- **Cyan Highlight**: #00e5ff
+- **Dark Base**: #080B12
+- **Navy**: #101827
+- **Electric Blue**: #168BFF
+- **Cyan Highlight**: #35C7FF
 - **White Text**: #f5f8fc
 - **Gray Secondary**: #9ca3af
 - **WhatsApp**: #10b981
@@ -260,12 +243,11 @@ Includes all essential SEO elements:
 
 Before going live, verify:
 
-- [ ] All 10 game images are added to `assets/images/games/`
-- [ ] Images use exact filenames (see IMAGES.md)
+- [ ] Product image paths in `js/catalog.js` are valid
 - [ ] Tested on mobile (iPhone + Android)
 - [ ] Tested on desktop (Chrome, Firefox, Safari)
 - [ ] All WhatsApp links work
-- [ ] Language switcher works (EN ↔ العربية)
+- [ ] Language switcher works (EN / FR / ES / AR)
 - [ ] Search finds all games
 - [ ] Product prices are correct
 - [ ] Instagram link works
@@ -279,26 +261,21 @@ Before going live, verify:
 
 ## 🎯 Next Steps
 
-1. **Upload Game Images**
-   - Save 10 game cover images
-   - Place in `assets/images/games/`
-   - Use exact filenames from IMAGES.md
-   - Refresh browser
-
-2. **Verify Everything Works**
+1. **Verify Everything Works**
    - Test all product pages
+   - Test cart quantity controls and checkout
    - Test WhatsApp links
    - Test search
    - Test language switcher
    - Test on mobile
 
-3. **Deploy Website**
+2. **Deploy Website**
    - Upload to web host
    - Set up domain
    - Enable HTTPS
    - Configure email
 
-4. **Monitor & Maintain**
+3. **Monitor & Maintain**
    - Check WhatsApp messages
    - Update reviews when you get them
    - Add new games if needed
@@ -325,15 +302,13 @@ Add more content as needed by editing HTML/CSS/JS files.
 
 ## 🚀 Launch!
 
-Your FCHKAL KEYS website is **100% production-ready**.
-
-With your actual game images added, it will look like a premium, professional gaming store.
+The storefront is static and requires no build step. Confirm live inventory, prices, and fulfilment details before deploying.
 
 **Contact info already configured:**
-- WhatsApp: 0784698172
+- WhatsApp: +212 636 059 783
 - Instagram: @fchkal___keys.ma
 
-Everything is set up. Add images and go live! 🎮
+Product artwork is already stored locally. Keep the product catalogue and image references in sync.
 
 ---
 

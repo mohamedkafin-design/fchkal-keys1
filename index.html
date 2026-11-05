@@ -70,11 +70,14 @@
                     </button>
                     <div class="nav-dropdown-menu">
                         <a href="#games" class="nav-dropdown-item">All Games</a>
-                        <a href="#best-deals" class="nav-dropdown-item">Best Deals</a>
+                        <a href="#best-deals" class="nav-dropdown-item">Best Sellers</a>
+                        <a href="#special-offers" class="nav-dropdown-item">Special Offers</a>
+                        <a href="#playstation-games" class="nav-dropdown-item">PlayStation</a>
                         <a href="#playstation-plus" class="nav-dropdown-item">PlayStation Plus</a>
+                        <a href="#steam-games" class="nav-dropdown-item">Steam / PC</a>
                     </div>
                 </div>
-                <a href="#games" class="nav-link" data-section="games">Games</a>
+                <a href="#games" class="nav-link" data-section="games">Browse Games</a>
                 <a href="#playstation-plus" class="nav-link" data-section="playstation-plus">PlayStation Plus</a>
                 <a href="#reviews" class="nav-link" data-section="reviews">Reviews</a>
                 <a href="#faq" class="nav-link" data-section="faq">FAQ</a>
@@ -129,15 +132,15 @@
             <img data-brand-logo src="public/images/brand/fchkal-store-logo.png" alt="FCHKAL STORE" class="hero-logo" width="120" height="120">
             <p class="eyebrow">Premium gaming boutique</p>
             <h1 class="hero-title">FIND YOUR<br><span class="hero-title-accent">NEXT LEGEND</span></h1>
-            <p class="hero-subtitle">Curated PS5 and PS4 titles — verified stock, premium service, and tailored WhatsApp buying support.</p>
+            <p class="hero-subtitle">Discover PlayStation and PC favourites, clear Moroccan pricing, and personal WhatsApp support from FCHKAL STORE.</p>
 
             <div class="hero-ctas">
                 <a href="#games" class="btn btn-primary">
-                    <span>SHOP NOW</span>
+                    <span>BROWSE GAMES</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <a href="#games" class="btn btn-secondary">
-                    <span>EXPLORE GAMES</span>
+                <a href="#special-offers" class="btn btn-secondary">
+                    <span>EXPLORE DEALS</span>
                 </a>
             </div>
         </div>
@@ -147,9 +150,139 @@
         </div>
     </section>
 
-    <!-- TRUST / BENEFITS BAR -->
-    <section class="trust-bar" aria-label="Store benefits">
+    <!-- BEST SELLERS -->
+    <section id="best-deals" class="best-deals">
+        <div class="best-deals-glow"></div>
         <div class="container">
+            <h2>BEST SELLERS</h2>
+            <p class="section-subtitle">A curated selection of standout games from our catalogue</p>
+            <div class="best-deals-grid" id="bestDealsGrid"></div>
+            <div class="view-all-cta">
+                <a href="#games" class="btn btn-primary">BROWSE ALL GAMES</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LATEST GAMES -->
+    <section id="latest-games" class="catalog-feature-section">
+        <div class="container">
+            <div class="section-header-row">
+                <div>
+                    <p class="eyebrow subdued">Fresh from the catalogue</p>
+                    <h2>LATEST GAMES</h2>
+                </div>
+            </div>
+            <div class="feature-games-grid" id="latestGamesGrid"></div>
+        </div>
+    </section>
+
+    <!-- SPECIAL OFFERS -->
+    <section id="special-offers" class="special-offers-section">
+        <div class="container">
+            <div class="section-header-row">
+                <div>
+                    <p class="eyebrow subdued">Limited-time savings</p>
+                    <h2>SPECIAL OFFERS</h2>
+                </div>
+            </div>
+            <div class="feature-games-grid" id="specialOffersGrid"></div>
+        </div>
+    </section>
+
+    <!-- PLAYSTATION GAMES -->
+    <section id="playstation-games" class="catalog-feature-section">
+        <div class="container">
+            <div class="section-header-row">
+                <div>
+                    <p class="eyebrow subdued">Console collection</p>
+                    <h2>PLAYSTATION GAMES</h2>
+                </div>
+                <a href="#games" class="view-all-link">View full catalogue <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="feature-games-grid" id="playstationGamesGrid"></div>
+        </div>
+    </section>
+
+    <!-- PLAYSTATION PLUS -->
+    <section id="playstation-plus" class="playstation-plus-section">
+        <div class="container">
+            <div class="section-header-row">
+                <div>
+                    <p class="eyebrow subdued">PlayStation Plus</p>
+                    <h2>PLAYSTATION PLUS</h2>
+                </div>
+                <a href="#games" class="view-all-link">Browse titles <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <p class="section-subtitle">Subscription options kept separate from the main game catalogue.</p>
+            <div class="packs-grid" id="playstationPlusGrid"></div>
+        </div>
+    </section>
+
+    <!-- STEAM / PC GAMES -->
+    <section id="steam-games" class="catalog-feature-section">
+        <div class="container">
+            <div class="section-header-row">
+                <div>
+                    <p class="eyebrow subdued">For your desktop</p>
+                    <h2>STEAM / PC GAMES</h2>
+                </div>
+                <a href="#games" class="view-all-link">View full catalogue <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="feature-games-grid" id="steamGamesGrid"></div>
+        </div>
+    </section>
+
+    <!-- FULL CATALOGUE -->
+    <section id="games" class="popular-games">
+        <div class="container">
+            <div class="section-header-row">
+                <h2>ALL GAMES</h2>
+                <a href="#games" class="view-all-link">View All Games <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="catalog-controls" id="catalogControls" aria-label="Catalog filters">
+                <div class="catalog-control">
+                    <label for="categoryFilter">Category</label>
+                    <select id="categoryFilter">
+                        <option value="all">All categories</option>
+                    </select>
+                </div>
+                <div class="catalog-control">
+                    <label for="platformFilter">Platform</label>
+                    <select id="platformFilter">
+                        <option value="all">All platforms</option>
+                    </select>
+                </div>
+                <div class="catalog-control">
+                    <label for="sortFilter">Sort by</label>
+                    <select id="sortFilter">
+                        <option value="featured">Featured</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="popular-games-grid" id="gamesGrid"></div>
+        </div>
+    </section>
+
+    <!-- GAME PACKS -->
+    <section id="game-packs" class="game-packs">
+        <div class="container">
+            <h2>GAME PACKS</h2>
+            <p class="section-subtitle">Curated PlayStation bundles and premium editions</p>
+            <div class="packs-grid" id="packsGrid"></div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE FCHKAL STORE -->
+    <section id="why-choose-us" class="trust-bar" aria-label="Why choose FCHKAL STORE">
+        <div class="container">
+            <div class="trust-heading">
+                <p class="eyebrow subdued">A better way to shop</p>
+                <h2>WHY CHOOSE FCHKAL STORE</h2>
+            </div>
             <div class="trust-grid">
                 <div class="trust-item reveal">
                     <div class="trust-icon"><i class="fas fa-bolt"></i></div>
@@ -180,80 +313,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- POPULAR GAMES -->
-    <section id="games" class="popular-games">
-        <div class="container">
-            <div class="section-header-row">
-                <h2>POPULAR GAMES</h2>
-                <a href="#games" class="view-all-link">View All Games <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="catalog-controls" id="catalogControls" aria-label="Catalog filters">
-                <div class="catalog-control">
-                    <label for="categoryFilter">Category</label>
-                    <select id="categoryFilter">
-                        <option value="all">All categories</option>
-                    </select>
-                </div>
-                <div class="catalog-control">
-                    <label for="platformFilter">Platform</label>
-                    <select id="platformFilter">
-                        <option value="all">All platforms</option>
-                    </select>
-                </div>
-                <div class="catalog-control">
-                    <label for="sortFilter">Sort by</label>
-                    <select id="sortFilter">
-                        <option value="featured">Featured</option>
-                        <option value="price-asc">Price: Low to High</option>
-                        <option value="price-desc">Price: High to Low</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="popular-games-grid" id="gamesGrid">
-                <!-- Populated by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- BEST DEALS -->
-    <section id="best-deals" class="best-deals">
-        <div class="best-deals-glow"></div>
-        <div class="container">
-            <h2>BEST DEALS</h2>
-            <p class="section-subtitle">Premium PlayStation titles with verified availability</p>
-            <div class="best-deals-grid" id="bestDealsGrid"></div>
-            <div class="view-all-cta">
-                <a href="#games" class="btn btn-primary">VIEW ALL DEALS</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PLAYSTATION PLUS -->
-    <section id="playstation-plus" class="playstation-plus-section">
-        <div class="container">
-            <div class="section-header-row">
-                <div>
-                    <p class="eyebrow subdued">PlayStation Plus</p>
-                    <h2>PLAYSTATION PLUS</h2>
-                </div>
-                <a href="#games" class="view-all-link">Browse titles <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <p class="section-subtitle">Subscription options kept separate from the main game catalogue.</p>
-            <div class="packs-grid" id="playstationPlusGrid"></div>
-        </div>
-    </section>
-
-    <!-- GAME PACKS -->
-    <section id="game-packs" class="game-packs">
-        <div class="container">
-            <h2>GAME PACKS</h2>
-            <p class="section-subtitle">Curated PlayStation bundles and premium editions</p>
-            <div class="packs-grid" id="packsGrid"></div>
         </div>
     </section>
 
@@ -560,6 +619,7 @@
             const games = Array.isArray(window.GAME_CATALOG) ? window.GAME_CATALOG : [];
             const supportedPlayStationPlatforms = ['PS4', 'PS5'];
             const selectedVariantByProduct = {};
+            let productCardSequence = 0;
 
             function isPlayStationProduct(game) {
                 if (!game || typeof game !== 'object') return false;
@@ -597,6 +657,7 @@
                     noResults: 'No games found. Try another search.',
                     buyNow: 'BUY NOW',
                     details: 'Details',
+                    addToCart: 'Add to Cart',
                     preorder: 'Preorder',
                     inquiry: 'WhatsApp inquiry',
                     review: 'Review',
@@ -611,6 +672,8 @@
                     sortPriceDesc: 'Price: High to Low',
                     viewAllGames: 'View All Games',
                     popularGames: 'POPULAR GAMES',
+                    allGames: 'ALL GAMES',
+                    bestSellers: 'BEST SELLERS',
                     bestDeals: 'BEST DEALS',
                     gamePacks: 'GAME PACKS',
                     fastDelivery: 'Fast support',
@@ -623,6 +686,7 @@
                     noResults: 'Aucun jeu trouvé. Essayez une autre recherche.',
                     buyNow: 'ACHETER',
                     details: 'Détails',
+                    addToCart: 'Ajouter au panier',
                     preorder: 'Précommande',
                     inquiry: 'Demande WhatsApp',
                     review: 'Vérification',
@@ -637,6 +701,8 @@
                     sortPriceDesc: 'Prix: décroissant',
                     viewAllGames: 'Voir tous les jeux',
                     popularGames: 'JEUX POPULAIRES',
+                    allGames: 'TOUS LES JEUX',
+                    bestSellers: 'MEILLEURES VENTES',
                     bestDeals: 'MEILLEURES OFFRES',
                     gamePacks: 'PAQUETS DE JEUX',
                     fastDelivery: 'Support rapide',
@@ -649,6 +715,7 @@
                     noResults: 'No se encontraron juegos. Prueba otra búsqueda.',
                     buyNow: 'COMPRAR',
                     details: 'Detalles',
+                    addToCart: 'Añadir al carrito',
                     preorder: 'Reserva',
                     inquiry: 'Consulta por WhatsApp',
                     review: 'Revisión',
@@ -663,6 +730,8 @@
                     sortPriceDesc: 'Precio: mayor a menor',
                     viewAllGames: 'Ver todos los juegos',
                     popularGames: 'JUEGOS POPULARES',
+                    allGames: 'TODOS LOS JUEGOS',
+                    bestSellers: 'MÁS VENDIDOS',
                     bestDeals: 'MEJORES OFERTAS',
                     gamePacks: 'PAQUETES',
                     fastDelivery: 'Soporte rápido',
@@ -675,6 +744,7 @@
                     noResults: 'لم يتم العثور على ألعاب. حاول بحثاً آخر.',
                     buyNow: 'اشتري الآن',
                     details: 'التفاصيل',
+                    addToCart: 'أضف إلى السلة',
                     preorder: 'الحجز المسبق',
                     inquiry: 'استفسار واتساب',
                     review: 'مراجعة',
@@ -689,6 +759,8 @@
                     sortPriceDesc: 'السعر: من الأعلى إلى الأقل',
                     viewAllGames: 'عرض جميع الألعاب',
                     popularGames: 'الألعاب الشعبية',
+                    allGames: 'جميع الألعاب',
+                    bestSellers: 'الأكثر مبيعاً',
                     bestDeals: 'أفضل العروض',
                     gamePacks: 'باقات الألعاب',
                     fastDelivery: 'دعم سريع',
@@ -744,22 +816,19 @@
                 });
 
                 updateLanguageContent();
-                renderProducts();
-                renderBestDeals();
-                renderGamePacks();
-                renderPlayStationPlusGrid();
+                renderCatalogCollections();
             }
 
             function updateLanguageContent() {
                 const searchInput = document.getElementById('searchInput');
                 if (searchInput) searchInput.placeholder = getTranslation('searchPlaceholder');
 
-                const headingTargets = document.querySelectorAll('.section-header-row h2, .popular-games h2, .best-deals h2, .game-packs h2');
-                headingTargets.forEach(node => {
-                    if (node && node.textContent && node.textContent.trim().toLowerCase().includes('popular')) node.textContent = getTranslation('popularGames');
-                    if (node && node.textContent && node.textContent.trim().toLowerCase().includes('deal')) node.textContent = getTranslation('bestDeals');
-                    if (node && node.textContent && node.textContent.trim().toLowerCase().includes('pack')) node.textContent = getTranslation('gamePacks');
-                });
+                const catalogHeading = document.querySelector('.popular-games h2');
+                if (catalogHeading) catalogHeading.textContent = getTranslation('allGames');
+                const bestSellersHeading = document.querySelector('.best-deals h2');
+                if (bestSellersHeading) bestSellersHeading.textContent = getTranslation('bestSellers');
+                const packsHeading = document.querySelector('.game-packs h2');
+                if (packsHeading) packsHeading.textContent = getTranslation('gamePacks');
 
                 const categoryLabel = document.querySelector('#categoryFilter')?.closest('.catalog-control')?.querySelector('label');
                 if (categoryLabel) categoryLabel.textContent = getTranslation('category');
@@ -785,6 +854,9 @@
                 document.querySelectorAll('.product-details-btn span').forEach(button => {
                     button.textContent = getTranslation('details');
                 });
+                document.querySelectorAll('.add-cart-btn span').forEach(button => {
+                    button.textContent = getTranslation('addToCart');
+                });
             }
 
             function getDefaultPrice(game) {
@@ -798,6 +870,13 @@
                 return 'Platform required';
             }
 
+            function getPlatformBadgeText(product, variant) {
+                const platform = variant?.platform;
+                if (supportedPlayStationPlatforms.includes(platform) || platform === 'PC') return platform;
+                const listedPlatforms = (product.platforms || []).filter(item => supportedPlayStationPlatforms.includes(item) || item === 'PC');
+                return listedPlatforms.length ? listedPlatforms.join(' / ') : platform || getPrimaryPlatform(product);
+            }
+
             function getSelectedVariant(product) {
                 const variants = product.variants || [];
                 if (!variants.length) {
@@ -808,7 +887,8 @@
             }
 
             function renderVariantOptions(game) {
-                const variants = game.variants || [{ id: `${game.id}-default`, platform: getPrimaryPlatform(game), label: game.edition || 'Standard', price: Number(game.price) || 0 }];
+                const variants = (game.variants || []).filter(variant => variant.status !== 'review' && variant.status !== 'draft');
+                if (!variants.length) variants.push({ id: `${game.id}-default`, platform: getPrimaryPlatform(game), label: game.edition || 'Standard', price: Number(game.price) || 0 });
                 return variants.map((variant) => `<option value="${variant.id}" ${selectedVariantByProduct[game.id] === variant.id ? 'selected' : ''}>${variant.platform || variant.label || 'Variant'} — ${Number(variant.price)} DH</option>`).join('');
             }
 
@@ -831,11 +911,158 @@
                 return getTranslation('buyNow');
             }
 
+            function getPublicGameProducts() {
+                return games.filter(game => game.status !== 'draft' && game.status !== 'review' && !isPlayStationPlusProduct(game));
+            }
+
+            function getProductDiscount(product, variant) {
+                const currentPrice = Number(variant?.price ?? product.price ?? 0);
+                const originalPrice = Number(variant?.originalPrice ?? variant?.compareAtPrice ?? product.originalPrice ?? product.compareAtPrice ?? 0);
+                return Number.isFinite(originalPrice) && originalPrice > currentPrice ? originalPrice : null;
+            }
+
+            function loadCart() {
+                try {
+                    const savedItems = JSON.parse(safeStorage.getItem('fchkal-cart') || '[]');
+                    if (!Array.isArray(savedItems)) return [];
+
+                    return savedItems.map(item => {
+                        const product = games.find(game => game.id === item.productId);
+                        if (!product) return null;
+
+                        const variant = (product.variants || []).find(entry => entry.id === item.variantId) || getSelectedVariant(product);
+                        const quantity = Math.floor(Number(item.quantity));
+                        if (!Number.isFinite(quantity) || quantity < 1) return null;
+
+                        return {
+                            id: `${product.id}:${variant?.id || 'default'}`,
+                            productId: product.id,
+                            variantId: variant?.id || 'default',
+                            title: product.title,
+                            platform: getPlatformBadgeText(product, variant),
+                            image: product.image || 'images/placeholder.svg',
+                            price: Number(variant?.price ?? product.price ?? 0),
+                            quantity
+                        };
+                    }).filter(Boolean);
+                } catch (error) {
+                    console.warn('Saved cart data could not be loaded.', error);
+                    return [];
+                }
+            }
+
+            let cartItems = loadCart();
+
+            function saveCart() {
+                safeStorage.setItem('fchkal-cart', JSON.stringify(cartItems));
+            }
+
+            function getCartSubtotal() {
+                return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            }
+
+            function renderCart() {
+                const container = document.getElementById('cartItems');
+                const countElement = document.getElementById('cartCount');
+                const subtotal = getCartSubtotal();
+                if (countElement) countElement.textContent = String(cartItems.reduce((sum, item) => sum + item.quantity, 0));
+                const subtotalElement = document.getElementById('cartSubtotal');
+                const totalElement = document.getElementById('cartTotal');
+                if (subtotalElement) subtotalElement.textContent = `${subtotal} DH`;
+                if (totalElement) totalElement.textContent = `${subtotal} DH`;
+                const checkoutButton = document.getElementById('cartWhatsApp');
+                if (checkoutButton) checkoutButton.disabled = cartItems.length === 0;
+                if (!container) return;
+
+                if (!cartItems.length) {
+                    container.innerHTML = '<div class="cart-empty-state">Your cart is empty. Add a game to begin your order.</div>';
+                    return;
+                }
+
+                container.innerHTML = cartItems.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.title}" class="cart-item-image" onerror="this.onerror=null;this.src='images/placeholder.svg';">
+                        <div class="cart-item-body">
+                            <div class="cart-item-top">
+                                <strong>${item.title}</strong>
+                                <button type="button" class="cart-item-remove" data-remove-item="${item.id}" aria-label="Remove ${item.title}">Remove</button>
+                            </div>
+                            <p>${item.platform}</p>
+                            <div class="cart-item-bottom">
+                                <div class="cart-qty">
+                                    <button type="button" data-qty-action="decrease" data-item-id="${item.id}" aria-label="Decrease quantity">−</button>
+                                    <span>${item.quantity}</span>
+                                    <button type="button" data-qty-action="increase" data-item-id="${item.id}" aria-label="Increase quantity">+</button>
+                                </div>
+                                <strong>${item.price * item.quantity} DH</strong>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            function openCart() {
+                const drawer = document.getElementById('cartDrawer');
+                if (!drawer) return;
+                drawer.classList.add('open');
+                drawer.setAttribute('aria-hidden', 'false');
+            }
+
+            function closeCart() {
+                const drawer = document.getElementById('cartDrawer');
+                if (!drawer) return;
+                drawer.classList.remove('open');
+                drawer.setAttribute('aria-hidden', 'true');
+            }
+
+            function addToCart(productId, variantId) {
+                const product = games.find(game => game.id === productId);
+                if (!product) return;
+                const variant = (product.variants || []).find(entry => entry.id === variantId) || getSelectedVariant(product);
+                const itemId = `${product.id}:${variant?.id || 'default'}`;
+                const existing = cartItems.find(item => item.id === itemId);
+
+                if (existing) {
+                    existing.quantity += 1;
+                } else {
+                    cartItems.push({
+                        id: itemId,
+                        productId: product.id,
+                        variantId: variant?.id || 'default',
+                        title: product.title,
+                        platform: getPlatformBadgeText(product, variant),
+                        image: product.image || 'images/placeholder.svg',
+                        price: Number(variant?.price ?? product.price ?? 0),
+                        quantity: 1
+                    });
+                }
+
+                saveCart();
+                renderCart();
+                openCart();
+            }
+
+            function updateCartItemQuantity(itemId, change) {
+                const item = cartItems.find(entry => entry.id === itemId);
+                if (!item) return;
+                item.quantity += change;
+                if (item.quantity <= 0) cartItems = cartItems.filter(entry => entry.id !== itemId);
+                saveCart();
+                renderCart();
+            }
+
+            function sendCartToWhatsApp() {
+                if (!cartItems.length) return;
+                const lines = cartItems.map(item => `${item.title} (${item.platform}) x${item.quantity} — ${item.price * item.quantity} DH`).join('\n');
+                const message = `Hello FCHKAL STORE! I would like to order:\n${lines}\n\nTotal: ${getCartSubtotal()} DH\nPlease confirm availability and delivery details.`;
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+            }
+
             function buildWhatsAppLink(product, variant) {
                 const selectedVariant = variant || getSelectedVariant(product);
                 const price = Number(selectedVariant?.price ?? product.price ?? 0);
                 const edition = product.edition || 'Standard';
-                const platformText = selectedVariant?.platform ? `, ${selectedVariant.platform}` : '';
+                const platformText = getPlatformBadgeText(product, selectedVariant) ? `, ${getPlatformBadgeText(product, selectedVariant)}` : '';
                 const message = getTranslation('whatsappMsg')
                     .replace('{product}', product.title)
                     .replace('{edition}', edition)
@@ -853,9 +1080,11 @@
                 const variant = getSelectedVariant(game);
                 const price = Number(variant?.price ?? game.price ?? 0);
                 const imgSrc = game.image && game.image.trim() ? game.image : 'images/placeholder.svg';
-                const platformText = variant?.platform || getPrimaryPlatform(game);
-                const hasVariants = (game.variants || []).filter(variantItem => !(variantItem.status === 'review' || variantItem.status === 'inquiry')).length > 1;
+                const platformText = getPlatformBadgeText(game, variant);
+                const hasVariants = (game.variants || []).filter(variantItem => variantItem.status !== 'review' && variantItem.status !== 'draft').length > 1;
                 const badge = getStatusBadgeLabel(game);
+                const originalPrice = getProductDiscount(game, variant);
+                const variantSelectId = `variant-${game.id}-${++productCardSequence}`;
 
                 const visibleVariants = (game.variants || []).filter(variantItem => !(variantItem.status === 'review' || variantItem.status === 'inquiry'));
 
@@ -863,20 +1092,22 @@
                     <div class="product-image">
                         <img src="${imgSrc}" alt="${game.title}" loading="lazy" onerror="this.onerror=null;this.src='images/placeholder.svg';">
                         ${badge ? `<span class="product-badge ${getStatusClass(game)}">${badge}</span>` : ''}
+                        ${originalPrice ? `<span class="discount-badge">-${Math.round((1 - price / originalPrice) * 100)}%</span>` : ''}
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">${game.title}</h3>
                         <div class="product-meta-row">
                             <span class="product-edition">${game.edition || 'Standard'}</span>
-                            <span class="product-platform">${platformText}</span>
+                            <span class="product-platform product-platform-badge">${platformText}</span>
                         </div>
                         <div class="product-price-row">
                             <span class="product-price">${price}</span>
                             <span class="product-price-currency">DH</span>
+                            ${originalPrice ? `<del class="product-old-price">${originalPrice} DH</del>` : ''}
                         </div>
                         ${hasVariants ? `
-                            <label class="variant-label" for="variant-${game.id}">${getTranslation('platform')}</label>
-                            <select class="product-variant-select" id="variant-${game.id}" data-product-id="${game.id}">
+                            <label class="variant-label" for="${variantSelectId}">${getTranslation('platform')}</label>
+                            <select class="product-variant-select" id="${variantSelectId}" data-product-id="${game.id}">
                                 ${renderVariantOptions(game)}
                             </select>
                         ` : ''}
@@ -884,6 +1115,10 @@
                             <button type="button" class="btn btn-secondary product-details-btn" data-product-id="${game.id}">
                                 <i class="fas fa-info-circle"></i>
                                 <span>${getTranslation('details')}</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary add-cart-btn" data-product-id="${game.id}">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>${getTranslation('addToCart')}</span>
                             </button>
                             <a href="${buildWhatsAppLink(game, variant)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary buy-btn" aria-label="${getTranslation('buyNow')} ${game.title}">
                                 <i class="fab fa-whatsapp"></i>
@@ -898,16 +1133,19 @@
                     select.value = selectedVariantByProduct[game.id] || variant.id;
                     select.addEventListener('change', (event) => {
                         selectedVariantByProduct[game.id] = event.target.value;
-                        renderProducts();
+                        renderCatalogCollections();
                     });
                 }
 
                 const detailsButton = card.querySelector('.product-details-btn');
                 if (detailsButton) {
                     detailsButton.addEventListener('click', () => {
-                        window.open(buildWhatsAppLink(game, getSelectedVariant(game)), '_blank', 'noopener,noreferrer');
+                        window.location.hash = `#/product/${game.slug}`;
+                        renderProductRoute(game.slug);
                     });
                 }
+
+                card.querySelector('.add-cart-btn')?.addEventListener('click', () => addToCart(game.id, getSelectedVariant(game)?.id));
 
                 return card;
             }
@@ -919,7 +1157,7 @@
                 const sort = document.getElementById('sortFilter')?.value || 'featured';
 
                 let filtered = games.filter((game) => {
-                    if (game.status === 'draft' || game.status === 'review' || isPlayStationPlusProduct(game) || !isPlayStationProduct(game)) return false;
+                    if (game.status === 'draft' || game.status === 'review' || isPlayStationPlusProduct(game)) return false;
 
                     const matchesQuery = !query || game.title.toLowerCase().includes(query) || (game.category || '').toLowerCase().includes(query) || (game.edition || '').toLowerCase().includes(query);
                     const matchesCategory = category === 'all' || game.category === category;
@@ -956,12 +1194,87 @@
                 if (!grid) return;
                 grid.innerHTML = '';
 
-                const recommended = games.filter(game => isPlayStationProduct(game) && !isPlayStationPlusProduct(game) && game.status !== 'review' && game.status !== 'draft').slice(0, 4).map(game => game.id);
-                recommended.forEach((id, index) => {
-                    const game = games.find(item => item.id === id);
-                    if (game) grid.appendChild(createProductCard(game, index));
+                const bestSellerIds = ['g-gta-v', 'g-ea-sports-fc-26', 'g-ea-sports-fc-27', 'g-black-myth-wukong'];
+                const bestSellers = bestSellerIds
+                    .map(id => games.find(game => game.id === id))
+                    .filter(game => game && getPublicGameProducts().includes(game));
+                bestSellers.forEach((game, index) => grid.appendChild(createProductCard(game, index)));
+                observeNewCards();
+            }
+
+            function renderLatestGames() {
+                const grid = document.getElementById('latestGamesGrid');
+                if (!grid) return;
+                grid.innerHTML = '';
+
+                const latestIds = ['g-gta-vi', 'g-gta-vi-ultimate-edition', 'g-ea-sports-fc-27', 'g-nba-2k27-ps5-edition', 'g-wwe-2k26-standard-edition', 'g-ufc-6'];
+                latestIds
+                    .map(id => games.find(game => game.id === id))
+                    .filter(game => game && getPublicGameProducts().includes(game))
+                    .forEach((game, index) => grid.appendChild(createProductCard(game, index)));
+                observeNewCards();
+            }
+
+            function renderSpecialOffers() {
+                const grid = document.getElementById('specialOffersGrid');
+                if (!grid) return;
+                grid.innerHTML = '';
+
+                const offers = getPublicGameProducts().filter(game => {
+                    const variants = game.variants?.length ? game.variants : [null];
+                    return variants.some(variant => getProductDiscount(game, variant));
+                });
+
+                if (!offers.length) {
+                    grid.innerHTML = '<p class="catalog-empty-state">No active price reductions right now. Check back soon or browse the full catalogue.</p>';
+                    return;
+                }
+
+                offers.forEach((game, index) => {
+                    if (!getProductDiscount(game, getSelectedVariant(game))) {
+                        const discountedVariant = (game.variants || []).find(variant => getProductDiscount(game, variant));
+                        if (discountedVariant) selectedVariantByProduct[game.id] = discountedVariant.id;
+                    }
+                    grid.appendChild(createProductCard(game, index));
                 });
                 observeNewCards();
+            }
+
+            function renderPlatformGames(gridId, platform) {
+                const grid = document.getElementById(gridId);
+                if (!grid) return;
+                grid.innerHTML = '';
+
+                const products = getPublicGameProducts().filter(game =>
+                    (game.platforms || []).includes(platform) || (game.variants || []).some(variant => variant.platform === platform)
+                );
+                products.forEach((game, index) => grid.appendChild(createProductCard(game, index)));
+                observeNewCards();
+            }
+
+            function renderPlayStationGames() {
+                const grid = document.getElementById('playstationGamesGrid');
+                if (!grid) return;
+                grid.innerHTML = '';
+
+                const products = getPublicGameProducts().filter(isPlayStationProduct);
+                products.forEach((game, index) => grid.appendChild(createProductCard(game, index)));
+                observeNewCards();
+            }
+
+            function renderSteamGames() {
+                renderPlatformGames('steamGamesGrid', 'PC');
+            }
+
+            function renderCatalogCollections() {
+                renderProducts();
+                renderBestDeals();
+                renderLatestGames();
+                renderSpecialOffers();
+                renderPlayStationGames();
+                renderSteamGames();
+                renderGamePacks();
+                renderPlayStationPlusGrid();
             }
 
             function renderGamePacks() {
@@ -969,11 +1282,8 @@
                 if (!grid) return;
                 grid.innerHTML = '';
 
-                const packIds = ['g-007-first-light', 'g-ea-sports-fc-27', 'g-assassins-creed-black-flag-resynced'];
-                packIds
-                    .map(id => games.find(item => item.id === id))
-                    .filter(Boolean)
-                    .forEach((game, index) => grid.appendChild(createPackCard(game, index)));
+                const packs = getPublicGameProducts().filter(game => game.edition === 'Bundle' || /\b(pack|bundle)\b/i.test(game.title));
+                packs.forEach((game, index) => grid.appendChild(createPackCard(game, index)));
                 observeNewCards();
             }
 
@@ -991,36 +1301,8 @@
             }
 
             function createPackCard(game, index = 0) {
-                const card = document.createElement('article');
-                card.className = 'pack-card scroll-reveal';
-                card.setAttribute('data-game-id', game.id);
-                card.style.animationDelay = `${index * 0.05}s`;
-
-                const variant = getSelectedVariant(game);
-                const status = getStatusBadgeLabel(game);
-                const price = Number(variant?.price ?? game.price ?? 0);
-
-                card.innerHTML = `
-                    <div class="pack-image">
-                        <img src="${game.image || 'images/placeholder.svg'}" alt="${game.title}" loading="lazy" onerror="this.onerror=null;this.src='images/placeholder.svg';">
-                        ${status ? `<span class="pack-badge">${status}</span>` : ''}
-                    </div>
-                    <div class="pack-info">
-                        <h3 class="pack-title">${game.title}</h3>
-                        <p class="pack-description">${game.edition || 'Official catalog item'}</p>
-                        <div class="pack-price">${price} DH</div>
-                        <ul class="pack-features">
-                            <li><i class="fas fa-check"></i><span>${getTranslation('fastDelivery')}</span></li>
-                            <li><i class="fas fa-check"></i><span>${getTranslation('verifiedSupport')}</span></li>
-                            <li><i class="fas fa-check"></i><span>${getTranslation('storeGuarantee')}</span></li>
-                        </ul>
-                        <a href="${buildWhatsAppLink(game, variant)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                            <i class="fab fa-whatsapp"></i>
-                            <span>${getStatusButtonText(game)}</span>
-                        </a>
-                    </div>
-                `;
-
+                const card = createProductCard(game, index);
+                card.classList.add('pack-card');
                 return card;
             }
 
@@ -1029,7 +1311,7 @@
                 const platformFilter = document.getElementById('platformFilter');
                 if (!categoryFilter || !platformFilter) return;
 
-                const supportedGames = games.filter(game => isPlayStationProduct(game) && !isPlayStationPlusProduct(game) && game.status !== 'review' && game.status !== 'draft');
+                const supportedGames = getPublicGameProducts();
                 const categories = [...new Set(supportedGames.map(game => game.category).filter(Boolean))].sort();
                 categories.forEach(category => {
                     const option = document.createElement('option');
@@ -1038,7 +1320,11 @@
                     categoryFilter.appendChild(option);
                 });
 
-                const platforms = [...new Set(supportedGames.flatMap(game => game.platforms || []).filter(platform => supportedPlayStationPlatforms.includes(platform)))].sort();
+                const supportedPlatforms = ['PS4', 'PS5', 'PC'];
+                const platforms = [...new Set(supportedGames.flatMap(game => [
+                    ...(game.platforms || []),
+                    ...(game.variants || []).map(variant => variant.platform)
+                ]).filter(platform => supportedPlatforms.includes(platform)))].sort();
                 platforms.forEach(platform => {
                     const option = document.createElement('option');
                     option.value = platform;
@@ -1049,7 +1335,7 @@
 
             function handleSearch(e) {
                 const query = (e.target.value || '').trim().toLowerCase();
-                const results = games.filter(game => isPlayStationProduct(game) && !isPlayStationPlusProduct(game) && game.status !== 'review' && game.status !== 'draft' && (!query || game.title.toLowerCase().includes(query) || (game.category || '').toLowerCase().includes(query) || (game.edition || '').toLowerCase().includes(query)));
+                const results = getPublicGameProducts().filter(game => !query || game.title.toLowerCase().includes(query) || (game.category || '').toLowerCase().includes(query) || (game.edition || '').toLowerCase().includes(query));
                 displaySearchResults(results);
                 renderProducts();
             }
@@ -1098,7 +1384,8 @@
             function getRouteSlug() {
                 const rawHash = window.location.hash.replace(/^#\/?/, '').trim();
                 if (!rawHash) return '';
-                return rawHash.split('/').filter(Boolean)[0] || '';
+                const segments = rawHash.split('/').filter(Boolean);
+                return segments[0] === 'product' ? segments[1] || '' : segments[0] || '';
             }
 
             function renderProductRoute(slug) {
@@ -1144,6 +1431,7 @@
                             </div>
                             <p class="route-description">${product.reviewNotes || 'Premium PlayStation title with verified storefront pricing and WhatsApp purchase support.'}</p>
                             <div class="product-detail-actions">
+                                <button type="button" class="btn btn-secondary route-add-cart" data-product-id="${product.id}">Add to Cart</button>
                                 <a href="${buildWhatsAppLink(product, variant)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buy via WhatsApp</a>
                                 <button type="button" class="btn btn-secondary" data-close-route="true">Return to shop</button>
                             </div>
@@ -1170,6 +1458,7 @@
                         renderProductRoute(product.slug);
                     });
                 });
+                routeView.querySelector('.route-add-cart')?.addEventListener('click', () => addToCart(product.id, getSelectedVariant(product)?.id));
             }
 
             function syncRoute() {
@@ -1209,6 +1498,29 @@
                 document.getElementById('categoryFilter')?.addEventListener('change', renderProducts);
                 document.getElementById('platformFilter')?.addEventListener('change', renderProducts);
                 document.getElementById('sortFilter')?.addEventListener('change', renderProducts);
+                document.getElementById('cartButton')?.addEventListener('click', openCart);
+                document.getElementById('closeCart')?.addEventListener('click', closeCart);
+                document.getElementById('cartWhatsApp')?.addEventListener('click', sendCartToWhatsApp);
+
+                document.addEventListener('click', event => {
+                    const removeButton = event.target.closest('[data-remove-item]');
+                    if (removeButton) {
+                        cartItems = cartItems.filter(item => item.id !== removeButton.dataset.removeItem);
+                        saveCart();
+                        renderCart();
+                        return;
+                    }
+
+                    const quantityButton = event.target.closest('[data-qty-action]');
+                    if (quantityButton) {
+                        const change = quantityButton.dataset.qtyAction === 'increase' ? 1 : -1;
+                        updateCartItemQuantity(quantityButton.dataset.itemId, change);
+                    }
+                });
+
+                document.addEventListener('keydown', event => {
+                    if (event.key === 'Escape') closeCart();
+                });
 
                 if (navToggle && navMenu) {
                     navToggle.addEventListener('click', () => {
@@ -1239,17 +1551,6 @@
                     item.querySelector('.faq-question')?.addEventListener('click', () => item.classList.toggle('active'));
                 });
 
-                document.querySelectorAll('.product-details-btn').forEach(button => {
-                    button.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        const productId = button.dataset.productId;
-                        const product = games.find(item => item.id === productId);
-                        if (product) {
-                            window.location.hash = `#/product/${product.slug}`;
-                            renderProductRoute(product.slug);
-                        }
-                    });
-                });
             }
 
             function closeMobileMenu() {
@@ -1392,10 +1693,8 @@
                 initializeCatalogState();
                 populateCatalogFilters();
                 initializeLanguage();
-                renderProducts();
-                renderBestDeals();
-                renderGamePacks();
-                renderPlayStationPlusGrid();
+                renderCatalogCollections();
+                renderCart();
                 setupEventListeners();
                 setupScrollAnimations();
                 setupNavbarScroll();

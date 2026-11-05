@@ -1,16 +1,15 @@
-# FCHKAL KEYS — Premium Gaming Store
+# FCHKAL STORE — Premium Gaming Store
 
 Professional, modern gaming e-commerce website built with HTML5, CSS3, and JavaScript.
 
 ## 🎮 Project Overview
 
-FCHKAL KEYS is a premium PC gaming store offering:
-- 10 handpicked games and game packs
-- Instant WhatsApp ordering system
-- Bilingual support (English + Arabic with RTL)
-- Professional, responsive design
-- SEO optimized
-- Premium black-and-blue gaming theme with electric-blue and cyan accents
+FCHKAL STORE is a static gaming catalogue for PlayStation and PC, with:
+- A 40-entry catalogue managed in `js/catalog.js`
+- PlayStation, PlayStation Plus, and PC collections
+- Product details, platform filters, persistent cart, and WhatsApp ordering
+- English, French, Spanish, and Arabic (RTL) language options
+- Responsive styling with premium black, navy, electric-blue, and cyan accents
 
 ## 📁 Project Structure
 
@@ -20,11 +19,11 @@ fchkalkeys/
 ├── css/
 │   └── styles.css         # Complete styling
 ├── js/
-│   └── app.js             # Application logic
-├── assets/
-│   ├── images/
-│   │   └── games/         # Game images (add here)
-│   └── og-image.jpg       # Open Graph image
+│   ├── catalog.js         # Product data and WhatsApp configuration
+│   ├── app.js             # Older standalone implementation (not loaded by index.html)
+│   └── catalog-validator.js
+├── images/                # Product artwork and placeholder
+├── public/images/brand/   # Store logo
 ├── robots.txt             # SEO: Search engine directives
 ├── sitemap.xml            # SEO: Website sitemap
 └── README.md              # This file
@@ -54,10 +53,12 @@ The stylesheet and image URLs are relative, so they work on both repository proj
 
 ✅ **Responsive Design** — Works perfectly on desktop, tablet, and mobile
 ✅ **Dark Gaming Theme** — Deep black, charcoal panels, electric blue, and cyan accents
-✅ **Language Switcher** — English / العربية with RTL support
-✅ **Search System** — Find games instantly
+✅ **Language Switcher** — English, French, Spanish, and Arabic with RTL support
+✅ **Search and Filters** — Find catalogue items by name, category, or PS4 / PS5 / PC
 ✅ **WhatsApp Integration** — Direct messaging with game details pre-filled
-✅ **Product Grid** — 10 games + 2 game packs
+✅ **Product Collections** — Best sellers, latest titles, PlayStation, PlayStation Plus, PC, and full catalogue
+✅ **Shopping Cart** — Add items, adjust quantities, and send an order through WhatsApp
+✅ **Honest Discounts** — Sale prices appear only when a higher original price is provided
 ✅ **Animations** — Smooth scroll reveals and hover effects
 ✅ **SEO Optimized** — Proper meta tags, structured data, sitemap
 ✅ **Accessibility** — WCAG compliant, keyboard navigation
@@ -65,39 +66,11 @@ The stylesheet and image URLs are relative, so they work on both repository proj
 
 ## 🎯 Game Products
 
-All 10 games are ready with correct prices and information:
-
-1. **Pack 10 Games Steam** — 100 DH
-2. **GTA 5** — 30 DH
-3. **EA Sports FC 26** — 100 DH
-4. **Red Dead Redemption 2** — 30 DH
-5. **EA Sports FC 25** — 100 DH
-6. **Pack Denuvo Games** — 290 DH
-7. **ARK Raiders** — 50 DH (Online)
-8. **007 First Light** — 50 DH
-9. **Forza Horizon 6** — 50 DH
-10. **Resident Evil Requiem** — 80 DH
+The full product list, supported platforms, variants, current prices, availability, and image paths are maintained in `js/catalog.js`. Prices are displayed from that source; original prices are not invented for products without discount data.
 
 ## 🖼️ Adding Game Images
 
-The project is set up to use actual game images. To add images:
-
-1. **Save your images** in `assets/images/games/`
-2. **Name them exactly as listed below:**
-   - `pack-10-games.jpg`
-   - `gta5.jpg`
-   - `fc26.jpg`
-   - `rdr2.jpg`
-   - `fc25.jpg`
-   - `pack-denuvo.jpg`
-   - `ark-raiders.jpg`
-   - `007-first-light.jpg`
-   - `forza-horizon-6.jpg`
-   - `resident-evil-requiem.jpg`
-
-3. **Optimize images** for web (1200x1400px, ~300KB each)
-
-> **Note:** The website currently shows placeholder images. Once you add actual game images with the exact filenames above, they will automatically display.
+Product artwork is stored in `images/`. When adding or replacing an image, update the matching `image` path in `js/catalog.js`. Product cards use a consistent portrait frame with `object-fit: cover` to avoid stretching.
 
 ## 📱 Mobile Optimization
 
@@ -121,18 +94,17 @@ The website is fully responsive with:
 - Navigation and UI adapt automatically
 - Preference saved for next visit
 
-Switch languages using the **EN | العربية** button in the navbar.
+Switch languages using the **EN | FR | ES | العربية** buttons in the navbar.
 
 ## 💬 WhatsApp Integration
 
 Every product has a **BUY NOW** button that:
 1. Opens WhatsApp automatically
 2. Pre-fills the message with product details
-3. Contact: **+212 784 698 172** (or 0784698172)
+3. Contact: **+212 636 059 783**
 
 Example messages sent:
-- "Hello FCHKAL KEYS, I would like to buy GTA 5 for 30 DH."
-- "Hello FCHKAL KEYS, I would like to buy Pack 10 Games Steam for 100 DH."
+- "Hello FCHKAL STORE! I am interested in purchasing a game. Please confirm availability and delivery details."
 
 ## 🔍 SEO Features
 
@@ -153,11 +125,10 @@ Fully optimized for search engines:
 
 ### Change WhatsApp Number
 
-Edit the phone number in `js/app.js` (line ~20) or in any WhatsApp links:
+Change the configured WhatsApp number in `js/catalog.js` and update the static contact links in `index.html` to keep all contact entry points consistent:
 
 ```javascript
-// Replace 212784698172 with your number
-0784698172 → Your Number (without +212 prefix)
+// Current configured number: 212636059783 (without the + prefix)
 ```
 
 ### Change Colors
@@ -166,16 +137,16 @@ Edit CSS variables in `css/styles.css`:
 
 ```css
 :root {
-    --bg-deep: #0a0a0f;             /* Main background */
-    --bg-card: #121820;             /* Card surface */
-    --accent-blue: #1e90ff;         /* Primary accent */
-    --accent-cyan: #00e5ff;         /* Highlight accent */
+    --bg-deep: #080B12;             /* Main background */
+    --bg-navy: #101827;             /* Panel surface */
+    --accent-blue: #168BFF;         /* Primary accent */
+    --accent-cyan: #35C7FF;         /* Highlight accent */
 }
 ```
 
 ### Update Game Information
 
-Edit game data in `js/app.js` games array to change:
+Edit the product object in `js/catalog.js` to change:
 - Titles, descriptions, prices
 - Images paths
 - Badges, ratings
@@ -183,21 +154,20 @@ Edit game data in `js/app.js` games array to change:
 
 ### Add/Remove Games
 
-To add a game, add a new object to the `games` array in `js/app.js`:
+To add a game, add a product object to `GAME_CATALOG` in `js/catalog.js`:
 
 ```javascript
 {
-    id: 11,
+    id: "g-new-game",
+    slug: "new-game",
     title: "Game Title",
-    titleAr: "عنوان اللعبة",
-    description: "Description",
-    descriptionAr: "الوصف",
+    category: "Action Adventure",
+    edition: "Standard",
     price: 50,
-    currency: "DH",
-    image: "assets/images/games/game-image.jpg",
-    rating: 5,
-    type: "game",
-    whatsappMessage: "Hello FCHKAL KEYS, I would like to buy Game Title for 50 DH."
+    image: "images/game-image.jpg",
+    status: "available",
+    platforms: ["PC"],
+    variants: [{ id: "g-new-game-pc", platform: "PC", label: "PC", price: 50, status: "available" }]
 }
 ```
 
@@ -218,34 +188,30 @@ Cinematic introduction with:
 - Gaming Focused
 
 ### 3. Games Section
-Full product grid with 10 games showing:
-- Game image
-- Title & description
-- Rating
-- Price
-- BUY NOW button
+Full product catalogue with product images, titles, supported platforms, current prices, product details, Add to Cart, and WhatsApp ordering.
 
-### 4. Best Deals
-Highlighted selection of premium games
+### 4. Best Sellers and Latest Games
+Curated product collections selected from the catalogue.
 
-### 5. Game Packs
-Larger cards for special bundles:
-- 10 Games Pack
-- Denuvo Games Pack
+### 5. Special Offers
+Only products with a real original price higher than the current price receive discount labels.
 
-### 6. How It Works
+### 6. Platform Collections
+Separate PlayStation, PlayStation Plus, and Steam / PC sections.
+
+### 7. How It Works
 3-step process:
 1. Choose Your Game
 2. Click BUY NOW
 3. Contact on WhatsApp
 
-### 7. Reviews
+### 8. Reviews
 Customer testimonials (currently sample reviews — add real ones)
 
-### 8. FAQ
+### 9. FAQ
 Expandable Q&A section with 6 common questions
 
-### 9. Payment Methods
+### 10. Payment Methods
 Shows accepted payment options:
 - CIH Bank
 - Wafacash
@@ -253,16 +219,16 @@ Shows accepted payment options:
 - Cash Plus
 - Tijariwafa Bank
 
-### 10. Footer
+### 11. Footer
 Complete site navigation and contact information
 
 ## 🎨 Design System
 
 ### Color Palette
-- **Dark**: #0a0a0f (Main background)
-- **Card**: #121820 (Card background)
-- **Electric blue**: #1e90ff (Primary accent)
-- **Cyan**: #00e5ff (Highlight accent)
+- **Dark**: #080B12 (Main background)
+- **Navy**: #101827 (Panel background)
+- **Electric blue**: #168BFF (Primary accent)
+- **Cyan**: #35C7FF (Highlight accent)
 - **White**: #f5f8fc (Text)
 - **Gray**: #9aa9ba (Secondary text)
 - **Green**: #25d366 (WhatsApp)
@@ -308,18 +274,18 @@ Complete site navigation and contact information
 
 ## 📞 Support & Contact
 
-- **WhatsApp**: +212 784 698 172
+- **WhatsApp**: +212 636 059 783
 - **Instagram**: [@fchkal___keys.ma](https://www.instagram.com/fchkal___keys.ma?vrfl=MWZqcGo1bTJzMGNjMg==)
 
 ## 📄 License
 
-© 2026 FCHKAL KEYS. All rights reserved.
+© 2026 FCHKAL STORE. All rights reserved.
 
 ---
 
 ## ✨ Quick Checklist Before Launch
 
-- [ ] Add all 10 game images to `assets/images/games/`
+- [ ] Confirm product image paths in `js/catalog.js`
 - [ ] Update WhatsApp number (if different)
 - [ ] Add real customer reviews
 - [ ] Test on mobile devices
